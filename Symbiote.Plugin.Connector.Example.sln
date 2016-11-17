@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symbiote.Plugin.Connector.Example", "Symbiote.Plugin.Connector.Example\Symbiote.Plugin.Connector.Example.csproj", "{7BEF95DB-C014-46D2-9D84-7B3DA66E2608}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symbiote.Plugin.Connector.Example.Tests", "Symbiote.Plugin.Connector.Example.Tests\Symbiote.Plugin.Connector.Example.Tests.csproj", "{1A93454D-540B-4357-8100-E77A02CDCC1D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BEF95DB-C014-46D2-9D84-7B3DA66E2608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BEF95DB-C014-46D2-9D84-7B3DA66E2608}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BEF95DB-C014-46D2-9D84-7B3DA66E2608}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BEF95DB-C014-46D2-9D84-7B3DA66E2608}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A93454D-540B-4357-8100-E77A02CDCC1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A93454D-540B-4357-8100-E77A02CDCC1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A93454D-540B-4357-8100-E77A02CDCC1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A93454D-540B-4357-8100-E77A02CDCC1D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
