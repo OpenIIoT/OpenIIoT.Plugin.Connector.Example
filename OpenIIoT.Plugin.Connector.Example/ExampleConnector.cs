@@ -1,254 +1,227 @@
 ﻿/*
-      █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀ ▀▀▀  ▀  ▀      ▀▀ 
-      █   
-      █      ▄████████                                                               ▄████████                                                                          
-      █     ███    ███                                                               ███    ███                                                                         
-      █     ███    █▀  ▀███  ▐██▀   ▄█████     ▄▄██▄▄▄     █████▄  █          ▄█████ ███    █▀   ██████  ██▄▄▄▄  ██▄▄▄▄     ▄█████  ▄██████     ██     ██████     █████ 
-      █    ▄███▄▄▄       ██  ██     ██   ██  ▄█▀▀██▀▀█▄   ██   ██ ██         ██   █  ███        ██    ██ ██▀▀▀█▄ ██▀▀▀█▄   ██   █  ██    ██ ▀███████▄ ██    ██   ██  ██ 
-      █   ▀▀███▀▀▀        ████▀     ██   ██  ██  ██  ██   ██   ██ ██        ▄██▄▄    ███        ██    ██ ██   ██ ██   ██  ▄██▄▄    ██    ▀      ██  ▀ ██    ██  ▄██▄▄█▀ 
-      █     ███    █▄     ████    ▀████████  ██  ██  ██ ▀██████▀  ██       ▀▀██▀▀    ███    █▄  ██    ██ ██   ██ ██   ██ ▀▀██▀▀    ██    ▄      ██    ██    ██ ▀███████ 
-      █     ███    ███  ▄██ ▀██     ██   ██  ██  ██  ██   ██      ██▌    ▄   ██   █  ███    ███ ██    ██ ██   ██ ██   ██   ██   █  ██    ██     ██    ██    ██   ██  ██ 
-      █     ██████████ ███    ██▄   ██   █▀   █  ██  █   ▄███▀    ████▄▄██   ███████ ████████▀   ██████   █   █   █   █    ███████ ██████▀     ▄██▀    ██████    ██  ██ 
-      █   
- ▄ ▄▄ █ ▄▄▄▄▄▄▄▄▄  ▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ ▄▄  ▄▄ ▄▄   ▄▄▄▄ ▄▄     ▄▄     ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ ▄ ▄ 
- █ ██ █ █████████  ████ ██████████████████████████████████████ ███████████████ ██  ██ ██   ████ ██     ██     ████████████████ █ █ 
-      █  
+      █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀ ▀▀▀  ▀  ▀      ▀▀
+      █
+      █      ▄████████                                                               ▄████████
+      █     ███    ███                                                               ███    ███
+      █     ███    █▀  ▀███  ▐██▀   ▄█████     ▄▄██▄▄▄     █████▄  █          ▄█████ ███    █▀   ██████  ██▄▄▄▄  ██▄▄▄▄     ▄█████  ▄██████     ██     ██████     █████
+      █    ▄███▄▄▄       ██  ██     ██   ██  ▄█▀▀██▀▀█▄   ██   ██ ██         ██   █  ███        ██    ██ ██▀▀▀█▄ ██▀▀▀█▄   ██   █  ██    ██ ▀███████▄ ██    ██   ██  ██
+      █   ▀▀███▀▀▀        ████▀     ██   ██  ██  ██  ██   ██   ██ ██        ▄██▄▄    ███        ██    ██ ██   ██ ██   ██  ▄██▄▄    ██    ▀      ██  ▀ ██    ██  ▄██▄▄█▀
+      █     ███    █▄     ████    ▀████████  ██  ██  ██ ▀██████▀  ██       ▀▀██▀▀    ███    █▄  ██    ██ ██   ██ ██   ██ ▀▀██▀▀    ██    ▄      ██    ██    ██ ▀███████
+      █     ███    ███  ▄██ ▀██     ██   ██  ██  ██  ██   ██      ██▌    ▄   ██   █  ███    ███ ██    ██ ██   ██ ██   ██   ██   █  ██    ██     ██    ██    ██   ██  ██
+      █     ██████████ ███    ██▄   ██   █▀   █  ██  █   ▄███▀    ████▄▄██   ███████ ████████▀   ██████   █   █   █   █    ███████ ██████▀     ▄██▀    ██████    ██  ██
+      █
+ ▄ ▄▄ █ ▄▄▄▄▄▄▄▄▄  ▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ ▄▄  ▄▄ ▄▄   ▄▄▄▄ ▄▄     ▄▄     ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ ▄ ▄
+ █ ██ █ █████████  ████ ██████████████████████████████████████ ███████████████ ██  ██ ██   ████ ██     ██     ████████████████ █ █
+      █
       █  A simple, fully featured Connector Plugin.
-      █  
-      ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀  ▀▀ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀██ 
-                                                                                                   ██ 
-                                                                                               ▀█▄ ██ ▄█▀ 
-                                                                                                 ▀████▀   
+      █
+      ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀  ▀▀ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀██
+                                                                                                   ██
+                                                                                               ▀█▄ ██ ▄█▀
+                                                                                                 ▀████▀
                                                                                                    ▀▀                            */
 
 using System;
 using System.Collections.Generic;
-using Symbiote.Core;
-using Symbiote.Core.Plugin;
-using Symbiote.Core.Configuration;
-using Symbiote.Core.Plugin.Connector;
 using System.Linq;
 using System.Timers;
-using Symbiote.Core.Model;
 using System.Threading.Tasks;
 using NLog.xLogger;
 using Utility.OperationResult;
+using OpenIIoT.SDK.Plugin;
+using OpenIIoT.SDK.Common;
+using OpenIIoT.SDK.Plugin.Connector;
+using OpenIIoT.SDK;
+using OpenIIoT.SDK.Configuration;
+using OpenIIoT.SDK.Common.Provider.ItemProvider;
 
-namespace Symbiote.Plugin.Connector.Example
+namespace OpenIIoT.Plugin.Connector.Example
 {
-    /// <summary>
-    /// A simple, fully featured Connector Plugin.
-    /// </summary>
-    /// <remarks>
-    /// <para>
-    ///     The class must implement, at a minimum, <see cref="IConnector"/>.  The IConnector interface extends <see cref="IPluginInstance"/>
-    ///     which in turn extends <see cref="IPlugin"/>, as well as the <see cref="IStateful"/> interface.
-    /// </para>
-    /// <para>
-    ///     The <see cref="IPlugin"/> interface provides the plugin metadata such as <see cref="IPlugin.Name"/>, <see cref="IPlugin.FQN"/>, <see cref="IPlugin.Version"/>,
-    ///     and <see cref="IPlugin.PluginType"/>, and the IPluginInstance interface provides <see cref="IPluginInstance.InstanceName"/>, and the <see cref="IStateful"/> 
-    ///     interface provides the <see cref="IStateful.Start()"/>, <see cref="IStateful.Restart()"/> and <see cref="IStateful.Stop()"/> methods.  Also provided are the 
-    ///     the <see cref="IStateful.State"/> property and the <see cref="IStateful.StateChanged"/> event.
-    /// </para>
-    /// <para>
-    ///     The <see cref="IConnector"/> interface provides the <see cref="Browse()"/> and <see cref="Browse(Item)"/> methods, used to retrieve the available
-    ///     Items from the Connector, and <see cref="Find(string)"/>, used to locate <see cref="Item"/>s.
-    /// </para>
-    /// <para>
-    ///     Depending on the nature of the Connector, it may implement the additional interfaces <see cref="IReadable"/>, <see cref="ISubscribable"/>,
-    ///     <see cref="IWriteable"/> and/or <see cref="IExtensible"/>.
-    /// </para>
-    /// <para>
-    ///     The <see cref="IReadable"/> interface is implemented by Connectors which are capable of providing data to ConnectorItems from the source of the
-    ///     Connector data.  The interface provides the <see cref="IReadable.Read(Item)"/> which is used by Model Items to retrieve the value on demand.  The Connector
-    ///     may implement an internal data cache if it is advantageous to do so, however the caching strategy must be designed and implemented by the Connector author.
-    ///     The <see cref="IReadable.ReadAsync(Item)"/> method must asynchronously invoke the Read() method.
-    /// </para>
-    /// <para>
-    ///     The <see cref="ISubscribable"/> interface is implemented by Connectors which are capable of providing unsolicited value updates to configured Items.
-    ///     The Connector is responsible for receiving unsolicited updates from the source, or, alternatively, polling the source of the subscribed items on a
-    ///     regular interval which may or may not be configurable.  The ISubscribable interface provides the <see cref="ISubscribable.Subscriptions"/> list, which
-    ///     is used to track current Item subscriptions and the number of scribers for each, and the <see cref="ISubscribable.Subscribe(ConnectorItem)"/> and
-    ///     <see cref="ISubscribable.UnSubscribe(ConnectorItem)"/> methods, used to manage Item subscriptions.
-    /// </para>
-    /// <para>
-    ///     When the value of an Item to which there are active subscriptions is updated from the source, the Connector is responsible for invoking the 
-    ///     <see cref="Item.Write(object)"> method of the subscribed Item and passing the new value.  This will in turn cause the Item to fire it's
-    ///     <see cref="Item.Changed"/> event which will cascade the updated value through the Model.
-    /// </para>
-    /// <para>
-    ///     The <see cref="IWriteable"/> interface is implemented by Connectors which are capable of writing data to the source of the Connector data.  The
-    ///     interface provides the <see cref="IWriteable.Write(Item, object)"/> method which is called by the <see cref="Item.WriteToSource(object)"/> method
-    ///     if the source Connector implements the IWriteable interface.  The Connector is responsible for writing the supplied value to the specified
-    ///     Item and returning a valid Result upon completion.  The <see cref="IWriteable.WriteAsync(Item, object)"/> method must asynchronously invoke
-    ///     the Write() method.
-    /// </para>
-    /// <para>
-    ///     The <see cref="IExtensible"/> interface is implemented by Connectors which are capable of allowing user-defined Items to be added at runtime.  This is primarily
-    ///     intended for data sources without the capability of fully describing the Items that are available for reading.  The IExtensible interface provides 
-    ///     the <see cref="IExtensible.AddItem(string, string)"/> method which accepts two strings; the Fully Qualified Name of the item to add, and the Fully
-    ///     Qualified Name of the source for the item.  The source FQN will generally be an arbitrary string that is meaningful only to the user adding
-    ///     the Item and the Connector.
-    /// </para>
-    /// <para>
-    ///     Items added via <see cref="IExtensible.AddItem(string, string)"/> are persisted within <see cref="IExtensible.AddedItems"/> as a dictionary keyed
-    ///     on the FQN string of the Item and containing the source FQN as the value.  Connectors must recreate added Items upon initialization.  User-defined 
-    ///     Items may be removed from the Connector using the <see cref="IExtensible.RemoveItem(string)"/> method.
-    /// </para>
-    /// <para>
-    ///     Lastly, the <see cref="IConfigurable{T}"/> interface allows the Connector to use the ConfigurationManager to store configuration items in the 
-    ///     application configuration.  For a full explanation, see the <see cref="IConfigurable{T}"/> and <see cref="ConfigurationManager"/> documentation.
-    /// </para>
-    /// <para>
-    ///     Each Plugin instance is provided with two references upon instantiation; the global instance of <see cref="ApplicationManager"/>, which serves as a 
-    ///     Service Locator for the various parts of the application, and a new instance of <see cref="xLogger"/>.  The majority of methods within the 
-    ///     Connector should make use of the <see cref="xLogger.EnterMethod(object[], bool, string, string, int)"/> and 
-    ///     <see cref="xLogger.ExitMethod(object, Guid, string, string, int)"/> methods at a minimum.  This is required to maintain the logging strategy
-    ///     for the application.
-    /// </para>
-    /// </remarks>
-    public class ExampleConnector : IConnector, IReadable, ISubscribable, IWriteable, IExtensible, IConfigurable<ExampleConnectorConfiguration>
+    /// <summary> A simple, fully featured Connector Plugin. </summary> <remarks> <para> The class must implement, at a minimum,
+    /// <see cref="IConnector"/>. The IConnector interface extends <see cref="IPluginInstance"/> which in turn extends <see
+    /// cref="IPlugin"/>, as well as the <see cref="IStateful"/> interface. </para> <para> The <see cref="IPlugin"/> interface
+    /// provides the plugin metadata such as <see cref="IPlugin.Name"/>, <see cref="IPlugin.FQN"/>, <see cref="IPlugin.Version"/>,
+    /// and <see cref="IPlugin.PluginType"/>, and the IPluginInstance interface provides <see
+    /// cref="IPluginInstance.InstanceName"/>, and the <see cref="IStateful"/> interface provides the <see
+    /// cref="IStateful.Start()"/>, <see cref="IStateful.Restart()"/> and <see cref="IStateful.Stop()"/> methods. Also provided are
+    /// the the <see cref="IStateful.State"/> property and the <see cref="IStateful.StateChanged"/> event. </para> <para> The <see
+    /// cref="IConnector"/> interface provides the <see cref="Browse()"/> and <see cref="Browse(Item)"/> methods, used to retrieve
+    /// the available Items from the Connector, and <see cref="Find(string)"/>, used to locate <see cref="Item"/>s. </para> <para>
+    /// Depending on the nature of the Connector, it may implement the additional interfaces <see cref="IReadable"/>, <see
+    /// cref="ISubscribable"/>, <see cref="IWriteable"/> and/or <see cref="IExtensible"/>. </para> <para> The <see
+    /// cref="IReadable"/> interface is implemented by Connectors which are capable of providing data to Items from the source of
+    /// the Connector data. The interface provides the <see cref="IReadable.Read(Item)"/> which is used by Model Items to retrieve
+    /// the value on demand. The Connector may implement an internal data cache if it is advantageous to do so, however the caching
+    /// strategy must be designed and implemented by the Connector author. The <see cref="IReadable.ReadAsync(Item)"/> method must
+    /// asynchronously invoke the Read() method. </para> <para> The <see cref="ISubscribable"/> interface is implemented by
+    /// Connectors which are capable of providing unsolicited value updates to configured Items. The Connector is responsible for
+    /// receiving unsolicited updates from the source, or, alternatively, polling the source of the subscribed items on a regular
+    /// interval which may or may not be configurable. The ISubscribable interface provides the <see
+    /// cref="ISubscribable.Subscriptions"/> list, which is used to track current Item subscriptions and the number of scribers for
+    /// each, and the <see cref="ISubscribable.Subscribe(Item)"/> and <see cref="ISubscribable.UnSubscribe(Item)"/> methods, used
+    /// to manage Item subscriptions. </para> <para> When the value of an Item to which there are active subscriptions is updated
+    /// from the source, the Connector is responsible for invoking the <see cref="Item.Write(object)"> method of the subscribed
+    /// Item and passing the new value. This will in turn cause the Item to fire it's <see cref="Item.Changed"/> event which will
+    /// cascade the updated value through the Model. </para> <para> The <see cref="IWriteable"/> interface is implemented by
+    /// Connectors which are capable of writing data to the source of the Connector data. The interface provides the <see
+    /// cref="IWriteable.Write(Item, object)"/> method which is called by the <see cref="Item.WriteToSource(object)"/> method if
+    /// the source Connector implements the IWriteable interface. The Connector is responsible for writing the supplied value to
+    /// the specified Item and returning a valid Result upon completion. The <see cref="IWriteable.WriteAsync(Item, object)"/>
+    /// method must asynchronously invoke the Write() method. </para> <para> The <see cref="IExtensible"/> interface is implemented
+    /// by Connectors which are capable of allowing user-defined Items to be added at runtime. This is primarily intended for data
+    /// sources without the capability of fully describing the Items that are available for reading. The IExtensible interface
+    /// provides the <see cref="IExtensible.AddItem(string, string)"/> method which accepts two strings; the Fully Qualified Name
+    /// of the item to add, and the Fully Qualified Name of the source for the item. The source FQN will generally be an arbitrary
+    /// string that is meaningful only to the user adding the Item and the Connector. </para> <para> Items added via <see
+    /// cref="IExtensible.AddItem(string, string)"/> are persisted within <see cref="IExtensible.AddedItems"/> as a dictionary
+    /// keyed on the FQN string of the Item and containing the source FQN as the value. Connectors must recreate added Items upon
+    /// initialization. User-defined Items may be removed from the Connector using the <see cref="IExtensible.RemoveItem(string)"/>
+    /// method. </para> <para> Lastly, the <see cref="IConfigurable{T}"/> interface allows the Connector to use the
+    /// ConfigurationManager to store configuration items in the application configuration. For a full explanation, see the <see
+    /// cref="IConfigurable{T}"/> and <see cref="ConfigurationManager"/> documentation. </para> <para> Each Plugin instance is
+    /// provided with two references upon instantiation; the global instance of <see cref="ApplicationManager"/>, which serves as a
+    /// Service Locator for the various parts of the application, and a new instance of <see cref="xLogger"/>. The majority of
+    /// methods within the Connector should make use of the <see cref="xLogger.EnterMethod(object[], bool, string, string, int)"/>
+    /// and <see cref="xLogger.ExitMethod(object, Guid, string, string, int)"/> methods at a minimum. This is required to maintain
+    /// the logging strategy for the application. </para> </remarks>
+    public class ExampleConnector : IConnector, ISubscribable, IWriteable, IExtensible, IConfigurable<ExampleConnectorConfiguration>
     {
         #region Variables
 
         /// <summary>
-        /// The logger for the Connector.
+        ///     The logger for the Connector.
         /// </summary>
         private xLogger logger;
 
         /// <summary>
-        /// The ApplicationManager for the application.
+        ///     The ApplicationManager for the application.
         /// </summary>
-        private ApplicationManager manager;
+        private IApplicationManager manager;
 
         /// <summary>
-        /// The root node for the item tree.
+        ///     The root node for the item tree.
         /// </summary>
-        private ConnectorItem itemRoot;
+        private Item itemRoot;
 
         /// <summary>
-        /// "Polling" timer used as an example; discard in actual implementations.
+        ///     "Polling" timer used as an example; discard in actual implementations.
         /// </summary>
         private Timer timer;
 
         #region Locks
 
         /// <summary>
-        /// A lock for the Subscriptions collection.
+        ///     A lock for the Subscriptions collection.
         /// </summary>
         private object SubscriptionsLock = new object();
 
         /// <summary>
-        /// A lock for the State property.
+        ///     A lock for the State property.
         /// </summary>
         private object StateLock = new object();
 
-        #endregion
+        #endregion Locks
 
-        #endregion
+        #endregion Variables
 
         #region Properties
 
         #region IConnector Properties
 
         /// <summary>
-        /// The Connector name.
+        ///     The Connector name.
         /// </summary>
         public string Name { get; private set; }
 
         /// <summary>
-        /// The Connector FQN.
+        ///     The Connector FQN.
         /// </summary>
         public string FQN { get; private set; }
 
         /// <summary>
-        /// The Connector Version.
+        ///     The Connector Version.
         /// </summary>
         public string Version { get; private set; }
 
         /// <summary>
-        /// The Connector type.
+        ///     The Connector type.
         /// </summary>
         public PluginType PluginType { get; private set; }
 
         /// <summary>
-        /// The name of the Connector instance.
+        ///     The name of the Connector instance.
         /// </summary>
         public string InstanceName { get; private set; }
 
         /// <summary>
-        /// The State of the Connector.
+        ///     The State of the Connector.
         /// </summary>
         public State State { get; private set; }
 
-        #endregion
+        #endregion IConnector Properties
 
         #region ISubscribable Properties
 
         /// <summary>
-        /// The dictionary containing the current list of subscribed Items and the number of subscribers for each Item.
+        ///     The dictionary containing the current list of subscribed Items and the number of subscribers for each Item.
         /// </summary>
-        public Dictionary<ConnectorItem, int> Subscriptions { get; private set; }
+        public Dictionary<Item, int> Subscriptions { get; private set; }
 
-        #endregion
+        #endregion ISubscribable Properties
 
         #region IExtensible Properties
 
         /// <summary>
-        ///     Returns a dictionary of the user defined <see cref="Item"/>s that have been added to the Connector, keyed on the 
+        ///     Returns a dictionary of the user defined <see cref="Item"/> s that have been added to the Connector, keyed on the
         ///     Fully Qualified Name of the item and containing the Source Fully Qualified Name as the value.
         /// </summary>
         /// <seealso cref="IExtensible.AddedItems"/>
         public Dictionary<string, string> AddedItems { get; private set; }
 
-        #endregion
+        #endregion IExtensible Properties
 
         #region IConfigurable Properties
 
         /// <summary>
-        /// The ConfigurationDefinition for the Connector.
+        ///     The ConfigurationDefinition for the Connector.
         /// </summary>
-        /// <remarks>
-        /// Generally, the getter for this property should return the static <see cref="GetConfigurationDefinition()"/>.
-        /// </remarks>
+        /// <remarks>Generally, the getter for this property should return the static <see cref="GetConfigurationDefinition()"/>.</remarks>
         public ConfigurationDefinition ConfigurationDefinition { get { return GetConfigurationDefinition(); } }
 
         /// <summary>
-        /// The Configuration for the Connector.
+        ///     The Configuration for the Connector.
         /// </summary>
-        /// <remarks>
-        /// The Type of this property should correspond to the Type T specified in <see cref="IConfigurable{T}"/>.
-        /// </remarks>
+        /// <remarks>The Type of this property should correspond to the Type T specified in <see cref="IConfigurable{T}"/>.</remarks>
         public ExampleConnectorConfiguration Configuration { get; private set; }
 
-        #endregion
+        #endregion IConfigurable Properties
 
-        #endregion
+        #endregion Properties
 
         #region Events
 
         #region IConnector Events
 
         /// <summary>
-        /// Fired when the State property changes.
+        ///     Fired when the State property changes.
         /// </summary>
         public event EventHandler<StateChangedEventArgs> StateChanged;
 
-        #endregion
+        #endregion IConnector Events
 
-        #endregion
+        #endregion Events
 
         #region Constructors
 
         /// <summary>
-        /// The default constructor.
+        ///     The default constructor.
         /// </summary>
         /// <param name="instanceName">The name of the instance, provided by the Plugin Manager.</param>
-        public ExampleConnector(ApplicationManager manager, string instanceName, xLogger logger)
+        public ExampleConnector(IApplicationManager manager, string instanceName, xLogger logger)
         {
             //------ ----------------------  --------------------------------------   -   -     -  -         ---- -
             // boilerplate code; this should appear in the majority of Connectors
-            
+
             // assign variables and properties
             this.manager = manager;
             InstanceName = instanceName;
@@ -257,13 +230,11 @@ namespace Symbiote.Plugin.Connector.Example
             // log the entry of the method
             logger.EnterMethod(xLogger.Params(new xLogger.ExcludedParam(), instanceName, new xLogger.ExcludedParam()));
 
-            // set up metadata
-            // The name of the assembly should generally be the same as the Connector Name.
+            // set up metadata The name of the assembly should generally be the same as the Connector Name.
             Name = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
 
-            // The FQN should generally correspond to the namespace of the Connector class
-            // note that the code below references the first Type in the assembly; this may need
-            // to be adjusted depending on the composition of the Connector.
+            // The FQN should generally correspond to the namespace of the Connector class note that the code below references the
+            // first Type in the assembly; this may need to be adjusted depending on the composition of the Connector.
             FQN = System.Reflection.Assembly.GetExecutingAssembly().GetTypes()[0].Namespace;
 
             // The version should generally match the assembly version.
@@ -282,17 +253,14 @@ namespace Symbiote.Plugin.Connector.Example
             // end of boilerplate
             //-------------------   --- -- ----------------------------------------------------  --  -  -
 
-
             // If the Connector implements ISubscribable, initialize the Subscriptions dictionary.
-            Subscriptions = new Dictionary<ConnectorItem, int>();
+            Subscriptions = new Dictionary<Item, int>();
 
-            // create a timer to "poll" for the current time
-            // this is analogous to code that would poll an external data source
+            // create a timer to "poll" for the current time this is analogous to code that would poll an external data source
             timer = new Timer(1000);
             timer.Elapsed += Timer_Elapsed;
 
-
-            //----------------------------------------------------- -  --------------  - 
+            //----------------------------------------------------- -  --------------  -
             // configuration boilerplate
             logger.Info("Configuring '" + instanceName + "'...");
 
@@ -321,14 +289,14 @@ namespace Symbiote.Plugin.Connector.Example
             logger.ExitMethod();
         }
 
-        #endregion
+        #endregion Constructors
 
         #region Instance Methods
 
         #region IConnector Implementation
-        
+
         /// <summary>
-        /// Returns true if any of the specified <see cref="State"/>s match the current <see cref="State"/>.
+        ///     Returns true if any of the specified <see cref="State"/> s match the current <see cref="State"/>.
         /// </summary>
         /// <param name="states">The list of States to check.</param>
         /// <returns>True if the current State matches any of the specified States, false otherwise.</returns>
@@ -338,12 +306,11 @@ namespace Symbiote.Plugin.Connector.Example
         }
 
         /// <summary>
-        /// Starts the Connector.
+        ///     Starts the Connector.
         /// </summary>
         /// <remarks>
-        ///     The State property should be set to <see cref="State.Starting"/> at the beginning of the method,
-        ///     and should either be set to <see cref="State.Running"/> or <see cref="State.Faulted"/> pending
-        ///     the outcome of the operation.
+        ///     The State property should be set to <see cref="State.Starting"/> at the beginning of the method, and should either
+        ///     be set to <see cref="State.Running"/> or <see cref="State.Faulted"/> pending the outcome of the operation.
         /// </remarks>
         /// <remarks>Any changes to the State property should fire the <see cref="StateChanged"/> event.</remarks>
         /// <returns>A Result containing the result of the operation.</returns>
@@ -355,8 +322,8 @@ namespace Symbiote.Plugin.Connector.Example
             Result retVal = new Result();
             ChangeState(State.Starting);
 
-            // place the startup code in a try/catch to be sure we won't have issues
-            // this is a bit dubious for this example, however this serves as a good template.
+            // place the startup code in a try/catch to be sure we won't have issues this is a bit dubious for this example,
+            // however this serves as a good template.
             try
             {
                 timer.Start();
@@ -366,8 +333,8 @@ namespace Symbiote.Plugin.Connector.Example
                 retVal.AddError("Failed to start the Plugin: " + ex.Message);
             }
 
-            // examine the Result to make sure we didn't encounter any issues.
-            // warnings are ok here, we'll send the messages back to the caller in the Result.
+            // examine the Result to make sure we didn't encounter any issues. warnings are ok here, we'll send the messages back
+            // to the caller in the Result.
             if (retVal.ResultCode != ResultCode.Failure)
                 ChangeState(State.Running);
             else
@@ -379,14 +346,14 @@ namespace Symbiote.Plugin.Connector.Example
         }
 
         /// <summary>
-        /// Stops, then Starts the Connector.
+        ///     Stops, then Starts the Connector.
         /// </summary>
         /// <returns>A Result containing the result of the operation.</returns>
         public Result Restart(StopType stopType = StopType.Stop)
         {
             Guid guid = logger.EnterMethod(true);
 
-            // short and sweet.  This should work in most instances.
+            // short and sweet. This should work in most instances.
             Result retVal = Start().Incorporate(Stop(stopType | StopType.Restart));
 
             retVal.LogResult(logger);
@@ -395,12 +362,11 @@ namespace Symbiote.Plugin.Connector.Example
         }
 
         /// <summary>
-        /// Stops the Connector.
+        ///     Stops the Connector.
         /// </summary>
         /// <remarks>
-        ///     The State property should be set to <see cref="State.Stopping"/> at the beginning of the method,
-        ///     and should either be set to <see cref="State.Stopped"/> or <see cref="State.Faulted"/> pending
-        ///     the outcome of the operation.
+        ///     The State property should be set to <see cref="State.Stopping"/> at the beginning of the method, and should either
+        ///     be set to <see cref="State.Stopped"/> or <see cref="State.Faulted"/> pending the outcome of the operation.
         /// </remarks>
         /// <remarks>
         ///     The Plugin configuration should be saved within this method, but only if the supplied <see cref="StopType"/>
@@ -429,8 +395,8 @@ namespace Symbiote.Plugin.Connector.Example
                 retVal.AddError("Failed to stop the Plugin: " + ex.Message);
             }
 
-            // examine the Result to make sure we didn't encounter any issues.
-            // warnings are ok here, we'll send the messages back to the caller in the Result.
+            // examine the Result to make sure we didn't encounter any issues. warnings are ok here, we'll send the messages back
+            // to the caller in the Result.
             if (retVal.ResultCode != ResultCode.Failure)
                 ChangeState(State.Stopped);
             else
@@ -440,9 +406,9 @@ namespace Symbiote.Plugin.Connector.Example
             logger.ExitMethod(retVal, guid);
             return retVal;
         }
-        
+
         /// <summary>
-        /// Returns the root node of the connector's <see cref="Item"/> tree.
+        ///     Returns the root node of the connector's <see cref="Item"/> tree.
         /// </summary>
         /// <returns>The root node of the connector's Item tree.</returns>
         public Item Browse()
@@ -451,7 +417,7 @@ namespace Symbiote.Plugin.Connector.Example
         }
 
         /// <summary>
-        /// Asynchronously returns the root node of the connector's <see cref="Item"/> tree.
+        ///     Asynchronously returns the root node of the connector's <see cref="Item"/> tree.
         /// </summary>
         /// <returns>The root node of the connector's Item tree.</returns>
         public async Task<Item> BrowseAsync()
@@ -460,27 +426,28 @@ namespace Symbiote.Plugin.Connector.Example
         }
 
         /// <summary>
-        /// Returns a list of the children <see cref="Item"/>s for the specified Item within the connector's Item tree.
+        ///     Returns a list of the children <see cref="Item"/> s for the specified Item within the connector's Item tree.
         /// </summary>
         /// <param name="root">The Item for which the children are to be returned.</param>
         /// <returns>A List of type Item containing all of the specified Item's children.</returns>
-        public List<Item> Browse(Item root)
+        public IList<Item> Browse(Item root)
         {
             return (root == null ? itemRoot.Children : root.Children);
         }
 
         /// <summary>
-        /// Asynchronously returns a list of the children <see cref="Item"/>s for the specified Item within the connector's Item tree.
+        ///     Asynchronously returns a list of the children <see cref="Item"/> s for the specified Item within the connector's
+        ///     Item tree.
         /// </summary>
         /// <param name="root">The Item for which the children are to be returned.</param>
         /// <returns>A List of type Item containing all of the specified Item's children.</returns>
-        public async Task<List<Item>> BrowseAsync(Item root)
+        public async Task<IList<Item>> BrowseAsync(Item root)
         {
             return await Task.Run(() => Browse(root));
         }
 
         /// <summary>
-        /// Returns the <see cref="Item"/> matching the specified Fully Qualified Name.
+        ///     Returns the <see cref="Item"/> matching the specified Fully Qualified Name.
         /// </summary>
         /// <param name="fqn">The Fully Qualified Name of the Item to return.</param>
         /// <returns>The found Item, or default(Item) if not found.</returns>
@@ -490,7 +457,7 @@ namespace Symbiote.Plugin.Connector.Example
         }
 
         /// <summary>
-        /// Asynchronously finds and returns the <see cref="Item"/> matching the specified Fully Qualified Name.
+        ///     Asynchronously finds and returns the <see cref="Item"/> matching the specified Fully Qualified Name.
         /// </summary>
         /// <param name="fqn">The Fully Qualified Name of the Item to return.</param>
         /// <returns>The found Item, or the default(Item) if not found.</returns>
@@ -499,52 +466,51 @@ namespace Symbiote.Plugin.Connector.Example
             return await Task.Run(() => Find(fqn));
         }
 
-        #endregion
+        #endregion IConnector Implementation
 
         #region IReadable Implementation
 
         /// <summary>
-        /// Reads and returns the current value of the specified <see cref="Item"/>.
+        ///     Reads and returns the current value of the specified <see cref="Item"/>.
         /// </summary>
         /// <remarks>
-        ///     Retrieve the current value either from an internal cache or the data source.  
-        ///     Caching is at the discretion (and, if used, is the responsibility) of the Connector.
+        ///     Retrieve the current value either from an internal cache or the data source. Caching is at the discretion (and, if
+        ///     used, is the responsibility) of the Connector.
         /// </remarks>
         /// <param name="item">The Item to read.</param>
         /// <returns>A Result containing the result of the operation and the current value of the Item.</returns>
-        public Result<object> Read(Item item)
+        public object Read(Item item)
         {
-            // in a real implementation the code would either return the value from an 
-            // internal model, or would go out to the data source and fetch the value
+            // in a real implementation the code would either return the value from an internal model, or would go out to the data
+            // source and fetch the value
             return new Result<object>().SetReturnValue("Hello World!");
         }
 
         /// <summary>
-        /// Asyncronously reads and returns the current value of the specified <see cref="Item"/>
+        ///     Asyncronously reads and returns the current value of the specified <see cref="Item"/>
         /// </summary>
         /// <param name="item">The Item to read.</param>
         /// <returns>A Result containing the result of the operation and the current value of the Item.</returns>
-        public async Task<Result<object>> ReadAsync(Item item)
+        public async Task<object> ReadAsync(Item item)
         {
             return await Task.Run(() => Read(item));
         }
 
-        #endregion
+        #endregion IReadable Implementation
 
         #region ISubscribable Implementation
 
         /// <summary>
-        /// Creates a subscription to the specified ConnectorItem.
+        ///     Creates a subscription to the specified Item.
         /// </summary>
         /// <remarks>
-        ///     Upon the addition of the initial subscriber, an entry is added to the <see cref="Subscriptions"/>
-        ///     Dictionary keyed with the specified Item and with a quantity of one.  Successive subscriptions
-        ///     increment the quantity by one.
+        ///     Upon the addition of the initial subscriber, an entry is added to the <see cref="Subscriptions"/> Dictionary keyed
+        ///     with the specified Item and with a quantity of one. Successive subscriptions increment the quantity by one.
         /// </remarks>
         /// <param name="item">The <see cref="Item"/> to which the subscription should be added.</param>
-        /// <threadsafety instance="true"/> 
+        /// <threadsafety instance="true"/>
         /// <returns>An <see cref="Result"/> containing the result of the operation.</returns>
-        public Result Subscribe(ConnectorItem item)
+        public Result Subscribe(Item item)
         {
             logger.EnterMethod(xLogger.Params(item));
             logger.Info("Creating new Subscription to Item '" + item.FQN + "'...");
@@ -578,16 +544,16 @@ namespace Symbiote.Plugin.Connector.Example
         }
 
         /// <summary>
-        /// Removes a subscription from the specified ConnectorItem.
+        ///     Removes a subscription from the specified Item.
         /// </summary>
         /// <remarks>
-        ///     Decrements the number of subscribers within the <see cref="Subscriptions"/> Dictionary.
-        ///     Upon removal of the final subscriber, the subscription is completely removed.
+        ///     Decrements the number of subscribers within the <see cref="Subscriptions"/> Dictionary. Upon removal of the final
+        ///     subscriber, the subscription is completely removed.
         /// </remarks>
         /// <param name="item">The <see cref="Item"/> for which the subscription should be removed.</param>
         /// <threadsafety instance="true"/>
         /// <returns>An <see cref="Result"/> containing the result of the operation.</returns>
-        public Result UnSubscribe(ConnectorItem item)
+        public Result UnSubscribe(Item item)
         {
             logger.EnterMethod(xLogger.Params(item));
             logger.Info("Removing Subscription for Item '" + item.FQN + "'...");
@@ -607,8 +573,7 @@ namespace Symbiote.Plugin.Connector.Example
                         // decrement the number of active subscriptions
                         Subscriptions[item]--;
 
-                        // if the number of subscriptions is zero (or less than zero somehow),
-                        // remove it from the dictionary.
+                        // if the number of subscriptions is zero (or less than zero somehow), remove it from the dictionary.
                         if (Subscriptions[item] <= 0)
                         {
                             Subscriptions.Remove(item);
@@ -629,52 +594,51 @@ namespace Symbiote.Plugin.Connector.Example
             return retVal;
         }
 
-        #endregion
+        #endregion ISubscribable Implementation
 
         #region IWriteable Implementation
 
         /// <summary>
-        /// Writes the specified value to the specified <see cref="Item"/>.
+        ///     Writes the specified value to the specified <see cref="Item"/>.
         /// </summary>
         /// <param name="item">The <see cref="Item"/> to write.</param>
         /// <param name="value">The value to write to the <see cref="Item"/>.</param>
         /// <returns>An <see cref="Result"/> containing the result of the operation.</returns>
-        public Result Write(Item item, object value)
+        public bool Write(Item item, object value)
         {
-            Result retVal = new Result();
-
             // Place the logic to write the specified value to the Item's source here
-
             if (item.Name == "HelloWorld")
-                retVal.Incorporate(item.Write(value));
+            {
+                return item.Write(value);
+            }
             else if (item.Name == "CurrentTime")
-                retVal.AddError("Unable to write value.");
+            {
+                return false;
+            }
 
-            return retVal;
+            return false;
         }
 
         /// <summary>
-        /// Asynchronously writes the specified value to the specified <see cref="Item"/>.
+        ///     Asynchronously writes the specified value to the specified <see cref="Item"/>.
         /// </summary>
         /// <param name="item">The Item to write.</param>
         /// <param name="value">The value to write to the <see cref="Item"/>.</param>
         /// <returns>A Result containing the result of the operation.</returns>
-        public async Task<Result> WriteAsync(Item item, object value)
+        public async Task<bool> WriteAsync(Item item, object value)
         {
             return await Task.Run(() => Write(item, value));
         }
 
-        #endregion
+        #endregion IWriteable Implementation
 
         #region IExtensible Implementation
 
         /// <summary>
-        /// Adds a new <see cref="Item"/> with the specified Fully Qualified Name and Fully Qualified Source Name
-        /// to the Connector Plugin's data structure.
+        ///     Adds a new <see cref="Item"/> with the specified Fully Qualified Name and Fully Qualified Source Name to the
+        ///     Connector Plugin's data structure.
         /// </summary>
-        /// <remarks>
-        /// Items contained within the Fully Qualified Path for the Item must be created if they don't yet exist.
-        /// </remarks>
+        /// <remarks>Items contained within the Fully Qualified Path for the Item must be created if they don't yet exist.</remarks>
         /// <param name="fqn">The Fully Qualifed Name of the <see cref="Item"/> to add.</param>
         /// <param name="sourceFQN">The Fully Qualified Source Name of the backing data point or structure.</param>
         /// <returns>A Result containing the result of the operation and the newly created Item.</returns>
@@ -690,14 +654,13 @@ namespace Symbiote.Plugin.Connector.Example
                 // split the specified FQN by '.' to get each tuple of the path
                 string[] path = fqn.Split('.');
 
-                // iterate over each tuple and make sure it exists in the connector's item model
-                // if it doesn't, create it.
+                // iterate over each tuple and make sure it exists in the connector's item model if it doesn't, create it.
                 Item currentNode = itemRoot;
                 foreach (string tuple in path)
                 {
                     if (!currentNode.Children.Exists(n => n.Name == tuple))
                     {
-                        currentNode = currentNode.AddChild(new ConnectorItem(this, tuple)).ReturnValue;
+                        currentNode = currentNode.AddChild(new Item(this, tuple)).ReturnValue;
                         retVal.AddInfo("Added node " + currentNode.FQN);
                     }
                     else
@@ -715,10 +678,10 @@ namespace Symbiote.Plugin.Connector.Example
         }
 
         /// <summary>
-        /// Removes a user defined <see cref="Item"/> from the Connector Plugin's data structure.
+        ///     Removes a user defined <see cref="Item"/> from the Connector Plugin's data structure.
         /// </summary>
         /// <remarks>
-        /// <para>If an Item being removed has child Items, all children are also removed.</para>
+        ///     <para>If an Item being removed has child Items, all children are also removed.</para>
         /// </remarks>
         /// <param name="fqn">The Item to remove.</param>
         /// <returns>A Result containing the result of the operation.</returns>
@@ -737,8 +700,8 @@ namespace Symbiote.Plugin.Connector.Example
 
                 if (foundItem != default(Item))
                 {
-                    // leverage the Item's parent to remove it from the model.
-                    // The RemoveChild() method in Item will recursively remove all children.
+                    // leverage the Item's parent to remove it from the model. The RemoveChild() method in Item will recursively
+                    // remove all children.
                     foundItem.Parent.RemoveChild(foundItem);
                 }
                 else
@@ -755,15 +718,15 @@ namespace Symbiote.Plugin.Connector.Example
             return retVal;
         }
 
-        #endregion
+        #endregion IExtensible Implementation
 
         #region IConfigurable Implementation
 
         /// <summary>
-        /// The parameterless Configure() method calls the overloaded Configure() and passes in the instance of 
-        /// the model/type returned by the GetConfiguration() method in the Configuration Manager.
-        /// 
-        /// This is akin to saying "configure yourself using whatever is in the config file"
+        ///     The parameterless Configure() method calls the overloaded Configure() and passes in the instance of the model/type
+        ///     returned by the GetConfiguration() method in the Configuration Manager.
+        ///
+        ///     This is akin to saying "configure yourself using whatever is in the config file"
         /// </summary>
         /// <returns></returns>
         public Result Configure()
@@ -771,9 +734,9 @@ namespace Symbiote.Plugin.Connector.Example
             logger.EnterMethod();
             Result retVal = new Result();
 
-            Result<ExampleConnectorConfiguration> fetchResult = manager.GetManager<ConfigurationManager>().GetInstanceConfiguration<ExampleConnectorConfiguration>(this.GetType(), InstanceName);
+            Result<ExampleConnectorConfiguration> fetchResult = manager.GetManager<IConfigurationManager>().GetInstanceConfiguration<ExampleConnectorConfiguration>(this.GetType(), InstanceName);
 
-            // if the fetch succeeded, configure this instance with the result.  
+            // if the fetch succeeded, configure this instance with the result.
             if (fetchResult.ResultCode != ResultCode.Failure)
             {
                 logger.Debug("Successfully fetched the configuration from the Configuration Manager.");
@@ -783,7 +746,7 @@ namespace Symbiote.Plugin.Connector.Example
             else
             {
                 logger.Debug("Unable to fetch the configuration.  Adding the default configuration to the Configuration Manager...");
-                Result<ExampleConnectorConfiguration> createResult = manager.GetManager<ConfigurationManager>().AddInstanceConfiguration<ExampleConnectorConfiguration>(this.GetType(), GetDefaultConfiguration(), InstanceName);
+                Result<ExampleConnectorConfiguration> createResult = manager.GetManager<IConfigurationManager>().AddInstanceConfiguration<ExampleConnectorConfiguration>(this.GetType(), GetDefaultConfiguration(), InstanceName);
                 if (createResult.ResultCode != ResultCode.Failure)
                 {
                     logger.Debug("Successfully added the configuration.  Configuring...");
@@ -799,17 +762,17 @@ namespace Symbiote.Plugin.Connector.Example
         }
 
         /// <summary>
-        /// Configures or re-configures the Connector using the specified configuration instance.
+        ///     Configures or re-configures the Connector using the specified configuration instance.
         /// </summary>
         /// <remarks>
-        /// <para>
-        ///     This method is primarily invoked by code external to the Connector, most likey by the API
-        ///     following an update to the configuration by a user.
-        /// </para>
-        /// <para>
-        ///     In addition to updating the Configuration property, this method is responsible for updating
-        ///     other portions of the Connector such that changes in configuration are effective immediately.
-        /// </para>
+        ///     <para>
+        ///         This method is primarily invoked by code external to the Connector, most likey by the API following an update
+        ///         to the configuration by a user.
+        ///     </para>
+        ///     <para>
+        ///         In addition to updating the Configuration property, this method is responsible for updating other portions of
+        ///         the Connector such that changes in configuration are effective immediately.
+        ///     </para>
         /// </remarks>
         /// <param name="configuration">The instance of the model/configuration type to apply.</param>
         /// <returns>An OperationResult containing the result of the operation.</returns>
@@ -858,24 +821,22 @@ namespace Symbiote.Plugin.Connector.Example
 
             // update the list of added Items
             Configuration.AddedItems = AddedItems;
-            
-            retVal.Incorporate(manager.GetManager<ConfigurationManager>().UpdateInstanceConfiguration(this.GetType(), Configuration, InstanceName));
+
+            retVal.Incorporate(manager.GetManager<IConfigurationManager>().UpdateInstanceConfiguration(this.GetType(), Configuration, InstanceName));
 
             retVal.LogResult(logger);
             logger.ExitMethod(retVal);
             return retVal;
         }
 
-        #endregion
+        #endregion IConfigurable Implementation
 
         /// <summary>
-        ///     Returns the child <see cref="Item"/> within the specified Item matching the 
-        ///     specified Fully Qualified Name
+        ///     Returns the child <see cref="Item"/> within the specified Item matching the specified Fully Qualified Name
         /// </summary>
         /// <remarks>
-        ///     Note that this is a private method; it is included to facilitate the Item search
-        ///     but is not part of the IConnector interface.  Ergo, supply your own method if you like,
-        ///     or do everything within the other overload.
+        ///     Note that this is a private method; it is included to facilitate the Item search but is not part of the IConnector
+        ///     interface. Ergo, supply your own method if you like, or do everything within the other overload.
         /// </remarks>
         /// <param name="root">The Parent Item to search.</param>
         /// <param name="fqn">The Fully Qualified Name of the Item to return.</param>
@@ -894,9 +855,8 @@ namespace Symbiote.Plugin.Connector.Example
         }
 
         /// <summary>
-        ///     Changes the <see cref="State"/> of the Connector to the specified state and fires the
-        ///     StateChanged event with the updates State, the previous state and the optionally supplied 
-        ///     message, if listeners are subscribed to the event.
+        ///     Changes the <see cref="State"/> of the Connector to the specified state and fires the StateChanged event with the
+        ///     updates State, the previous state and the optionally supplied message, if listeners are subscribed to the event.
         /// </summary>
         /// <param name="state">The State to which the State property should be changed.</param>
         /// <param name="message">The optional message describing the nature or reason for the change.</param>
@@ -916,55 +876,53 @@ namespace Symbiote.Plugin.Connector.Example
         }
 
         /// <summary>
-        /// Create mockup Items and start a "polling" timer.
+        ///     Create mockup Items and start a "polling" timer.
         /// </summary>
         private void InitializeItems()
         {
             // instantiate an item root
-            itemRoot = new ConnectorItem(this, InstanceName, true);
+            itemRoot = new Item(InstanceName, this);
 
-            // instantiate two items
-            // "HelloWorld" will be a writeable string, "CurrentTime" will update every second
-            itemRoot.AddChild(new ConnectorItem(this, "HelloWorld"));
-            itemRoot.AddChild(new ConnectorItem(this, "CurrentTime"));
+            // instantiate two items "HelloWorld" will be a writeable string, "CurrentTime" will update every second
+            itemRoot.AddChild(new Item("HelloWorld", this));
+            itemRoot.AddChild(new Item("DateTime", this));
         }
 
         /// <summary>
-        /// Event handler for the "polling" timer
+        ///     Event handler for the "polling" timer
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            // iterate over the subscribed tags and update them using Write()
-            // this will update the value of the ConnectorItem and will fire the Changed event
-            // which will cascade the value through the Model
+            // iterate over the subscribed tags and update them using Write() this will update the value of the Item and will fire
+            // the Changed event which will cascade the value through the Model
             foreach (Item key in Subscriptions.Keys)
             {
                 if (key.FQN == InstanceName + ".CurrentTime") key.Write(DateTime.Now);
             }
         }
 
-        #endregion
+        #endregion Instance Methods
 
         #region Static Methods
 
         /// <summary>
-        /// The GetConfigurationDefinition method is static and returns the ConfigurationDefinition for the Endpoint.
-        /// 
-        /// This method is necessary so that the configuration defintion can be registered with the ConfigurationManager
-        /// prior to any instances being created.  This method MUST be implemented, however it is not possible to specify
-        /// static methods in an interface, so implementing IConfigurable will not enforce this.
+        ///     The GetConfigurationDefinition method is static and returns the ConfigurationDefinition for the Endpoint.
+        ///
+        ///     This method is necessary so that the configuration defintion can be registered with the ConfigurationManager prior
+        ///     to any instances being created. This method MUST be implemented, however it is not possible to specify static
+        ///     methods in an interface, so implementing IConfigurable will not enforce this.
         /// </summary>
         /// <returns>The ConfigurationDefinition for the Endpoint.</returns>
         public static ConfigurationDefinition GetConfigurationDefinition()
         {
             ConfigurationDefinition retVal = new ConfigurationDefinition();
 
-            // to create the form and schema strings, visit http://schemaform.io/examples/bootstrap-example.html
-            // use the example to create the desired form and schema, and ensure that the resulting model matches the model
-            // for the endpoint.  When you are happy with the json from the above url, visit http://www.freeformatter.com/json-formatter.html#ad-output
-            // and paste in the generated json and format it using the "JavaScript escaped" option.  Paste the result into the methods below.
+            // to create the form and schema strings, visit http://schemaform.io/examples/bootstrap-example.html use the example to
+            // create the desired form and schema, and ensure that the resulting model matches the model for the endpoint. When you
+            // are happy with the json from the above url, visit http://www.freeformatter.com/json-formatter.html#ad-output and
+            // paste in the generated json and format it using the "JavaScript escaped" option. Paste the result into the methods below.
 
             retVal.Form = "[\"templateURL\",{\"type\":\"submit\",\"style\":\"btn-info\",\"title\":\"Save\"}]";
             retVal.Schema = "{\"type\":\"object\",\"title\":\"XMLEndpoint\",\"properties\":{\"templateURL\":{\"title\":\"Template URL\",\"type\":\"string\"}},\"required\":[\"templateURL\"]}";
@@ -975,12 +933,10 @@ namespace Symbiote.Plugin.Connector.Example
         }
 
         /// <summary>
-        /// The GetDefaultConfiguration method is static and returns a default or blank instance of
-        /// the confguration model/type.
-        /// 
-        /// If the ConfigurationManager fails to retrieve the configuration for an instance it will invoke this 
-        /// method and return this value in lieu of a loaded configuration.  This is a failsafe in case
-        /// the configuration file becomes corrupted.
+        ///     The GetDefaultConfiguration method is static and returns a default or blank instance of the confguration model/type.
+        ///
+        ///     If the ConfigurationManager fails to retrieve the configuration for an instance it will invoke this method and
+        ///     return this value in lieu of a loaded configuration. This is a failsafe in case the configuration file becomes corrupted.
         /// </summary>
         /// <returns></returns>
         public static ExampleConnectorConfiguration GetDefaultConfiguration()
@@ -990,6 +946,6 @@ namespace Symbiote.Plugin.Connector.Example
             return retVal;
         }
 
-        #endregion
+        #endregion Static Methods
     }
 }

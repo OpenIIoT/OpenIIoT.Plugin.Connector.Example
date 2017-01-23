@@ -1,2 +1,2 @@
-# Symbiote.Plugin.Connector.Example
+# OpenIIoT.Plugin.Connector.Example
 Example Connector Plugin
